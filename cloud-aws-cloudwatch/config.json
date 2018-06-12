@@ -1,0 +1,123 @@
+{
+   "attribute" : [
+      {
+         "arg1" : "/usr/local/nagios/etc/aws_credentials.cfg",
+         "arg2" : "",
+         "arg4" : "eu-west-1",
+         "label1" : "File Path",
+         "label2" : "Access Key",
+         "label3" : "Secret Key",
+         "label4" : "Region",
+         "name" : "AWS_CLOUDWATCH_AUTHENTICATION",
+         "secured1" : "0",
+         "secured2" : "0",
+         "secured3" : "1",
+         "secured4" : "0",
+         "value" : ""
+      },
+      {
+         "arg1" : "'Average', 'Minimum', 'Maximum', 'Sum', 'SampleCount'",
+         "arg2" : "Example 'AWS/EC2'",
+         "arg3" : "Example for EC2 is 'InstanceId'",
+         "arg4" : "",
+         "label1" : "Statistic",
+         "label2" : "Name Space",
+         "label3" : "Dimension",
+         "label4" : "",
+         "name" : "AWS_CLOUDWATCH_GENERIC_SEARCH",
+         "secured1" : "0",
+         "secured2" : "0",
+         "secured3" : "0",
+         "secured4" : "0",
+         "value" : ""
+      },
+      {
+         "arg1" : "",
+         "arg2" : "",
+         "arg3" : "",
+         "arg4" : "",
+         "label1" : "",
+         "label2" : "",
+         "label3" : "",
+         "label4" : "",
+         "name" : "AWS_CLOUDWATCH_SEARCH_VALUE",
+         "secured1" : "0",
+         "secured2" : "0",
+         "secured3" : "0",
+         "secured4" : "0",
+         "value" : ""
+      }
+   ],
+   "hosttemplate" : [
+      {
+         "description" : "For the monitoring any metric available from AWS CloudWatch",
+         "has_icon" : "0",
+         "managementurls" : [],
+         "name" : "Cloud - AWS - CloudWatch",
+         "servicechecks" : [
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "AWS - CloudWatch - Generic",
+               "timed_exception" : null
+            }
+         ]
+      }
+   ],
+   "keyword" : [],
+   "servicecheck" : [
+      {
+         "alert_from_failure" : "1",
+         "args" : "-m '%AWS_CLOUDWATCH_GENERIC_SEARCH%' -i '%AWS_CLOUDWATCH_SEARCH_VALUE%' -f '%AWS_CLOUDWATCH_AUTHENTICATION:1%' -A '%AWS_CLOUDWATCH_AUTHENTICATION:2%' -S '%AWS_CLOUDWATCH_AUTHENTICATION:3%' -r '%AWS_CLOUDWATCH_AUTHENTICATION:4%' -s '%AWS_CLOUDWATCH_GENERIC_SEARCH:1%' -n '%AWS_CLOUDWATCH_GENERIC_SEARCH:2%' -d '%AWS_CLOUDWATCH_GENERIC_SEARCH:3%'",
+         "attribute" : {
+            "name" : "AWS_CLOUDWATCH_GENERIC_SEARCH"
+         },
+         "calculate_rate" : null,
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "Service Check for creating your own metrics",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "AWS - CloudWatch - Generic",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_aws_cloudwatch"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Cloud - AWS - CloudWatch"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      }
+   ],
+   "servicegroup" : [
+      {
+         "name" : "Cloud - AWS - CloudWatch"
+      }
+   ]
+}
