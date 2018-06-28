@@ -1,5 +1,5 @@
 NAME=com.opsview.opspack.cloud_aws_cloudwatch
-VERSION=1.0
+VERSION=2.0
 ALIAS=Cloud - AWS - CloudWatch
 DEPENDENCIES=
-OPSVIEW_MIN_VERSION=
+OPSVIEW_MIN_VERSION=6.0.0
